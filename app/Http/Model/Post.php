@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     //projected $table = "othername"
+    //protected $guarded; //不可以注入的字段
+    //protected $fillable; //可以注入数据字段
+
+    protected $fillable = ["title","content"];
+
 }
