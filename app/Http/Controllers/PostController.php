@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Http\Model\Post;
 
 class PostController extends Controller
 {
     //列表
     public function index(){
-//        $post = Post::aviable()->orderBy("created_at", "desc");
-        return view("post/index");
+        $posts = Post::orderBy('created_at','desc')->get();
+        return view("post/index",compact('posts'));
     }
 
     //详情页面

@@ -12,7 +12,7 @@
                     </ol><!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="http://ww1.sinaimg.cn/large/44287191gw1excbq6tb3rj21400migrz.jpg" alt="..." />
+                            <img src="/image/44287191gw1excbq6tb3rj21400migrz.jpg" alt="..." />
                             <div class="carousel-caption">...</div>
                         </div>
 
@@ -27,14 +27,14 @@
             <div style="height: 20px;">
             </div>
             <div>
-
+                @foreach($posts as $post)
                 <div class="blog-post">
-                    <h2 class="blog-post-title"><a href="/posts/62" >你好你好</a></h2>
+                    <h2 class="blog-post-title"><a href="/posts/62" >{{$post->title}}</a></h2>
                     <p class="blog-post-meta">May 14, 2017 by <a href="/user/5">Kassandra Ankunding2</a></p>
-                    <p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好...
+                    <p>{{$post->content}}</p>
                     <p class="blog-post-meta">赞 0  | 评论 0</p>
                 </div>
-
+                @endforeach
                 <ul class="pagination">
                     <li class="disabled"><span>&laquo;</span></li>
                     <li class="active"><span>1</span></li>

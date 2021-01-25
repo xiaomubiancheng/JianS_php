@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
+/JianS_php
 /storage/*.key
 /vendor
 /.idea

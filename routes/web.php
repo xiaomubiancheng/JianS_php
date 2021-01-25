@@ -11,9 +11,10 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
+
 
 //文章列表页
 Route::get('/posts', '\App\Http\Controllers\PostController@index');
