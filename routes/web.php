@@ -15,6 +15,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//用户模块
+//注册页面
+Route::get('/register', "\App\Http\Controllers\RegisterController@index");
+Route::post('/register', "\App\Http\Controllers\RegisterController@register");
+#登录页面
+Route::get('/login', "\App\Http\Controllers\LoginController@index")->name('login');
+#登录行为
+Route::post('/login', "\App\Http\Controllers\LoginController@login");
+#登出
+Route::get('/logout', "\App\Http\Controllers\LoginController@logout");
+#个人设置页面
+Route::get('/user/me/setting', '\App\Http\Controllers\UserController@setting');
+Route::post('/user/me/setting', '\App\Http\Controllers\UserController@settingStore');
+
+
 
 //文章列表页
 Route::get('/posts', '\App\Http\Controllers\PostController@index');

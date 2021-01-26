@@ -8,7 +8,8 @@ class PostController extends Controller
 {
     //列表
     public function index(){
-        $posts = Post::orderBy('created_at','desc')->paginate(10);
+        $user = \Auth::user();
+        $posts = Post::orderBy('created_at','desc')->with(['user'])->paginate(10);
         return view("post/index",compact('posts'));
     }
 
@@ -28,8 +29,6 @@ class PostController extends Controller
         $this->validate(request(),[
             'title' => 'required|string|max:100|min:5',
             'content' => 'required|string|min:10'
-        ],[
-            //设置参数
         ]);
         
         #方法1.
@@ -40,7 +39,9 @@ class PostController extends Controller
 
         #方法2.
         #$params = ['title'=>request('title'),'content'=>request('content')]; //等价下面一行
-        $params = request(['title','content']);
+//        $params = request(['title','content']);
+        $params = array_merge(request(['title', 'content']), ['user_id' => \Auth::id()]);
+//        dd($params);
         $post = Post::create($params);
         //dd(\request()->all());
 
@@ -60,7 +61,7 @@ class PostController extends Controller
             'content' => 'required|min:5',
         ]);
 
-//        $this->authorize('update', $post);
+        $this->authorize('update', $post);
 
         $post->update(request(['title', 'content']));
         return redirect("/posts/{$post->id}");
