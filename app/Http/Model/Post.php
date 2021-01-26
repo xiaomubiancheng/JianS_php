@@ -21,4 +21,22 @@ class Post extends Model
         return $this->belongsTo('App\Http\Model\User');
     }
 
+    //评论模型
+    public function comments()
+    {
+        return $this->hasMany('\App\Http\Model\Comment')->orderBy('created_at','desc');
+    }
+
+
+    // 判断一个用户是否已经给这篇文章点赞了
+    public function zan($user_id)
+    {
+        return $this->hasOne(\App\Http\Model\Zan::class)->where('user_id', $user_id);
+    }
+
+    //所有赞
+    public function zans()
+    {
+        return $this->hasMany(\App\Http\Model\Zan::class)->orderBy('created_at', 'desc');
+    }
 }

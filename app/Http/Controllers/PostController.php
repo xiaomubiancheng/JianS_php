@@ -1,20 +1,23 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Model\Zan;
 use Illuminate\Http\Request;
 use \App\Http\Model\Post;
+
 
 class PostController extends Controller
 {
     //列表
     public function index(){
         $user = \Auth::user();
-        $posts = Post::orderBy('created_at','desc')->with(['user'])->paginate(10);
+        $posts = Post::orderBy('created_at','desc')->withCount(["comments","zans"])->with(['user'])->paginate(10);
         return view("post/index",compact('posts'));
     }
 
     //详情页面
     public function show(Post $post){
+        $post->load('comments');
         return view("post/show",compact('post'));
     }
 
@@ -82,5 +85,43 @@ class PostController extends Controller
         $path = $request->file('wangEditorH5File')->storePublicly(md5( time()));
         return asset('storage/'. $path);
     }
+
+    //提交评论
+    public function comment(Post $post)
+    {
+        $this->validate(request(),[
+            'post_id' => 'required|exists:posts,id',
+            'content' => 'required|min:10',
+        ]);
+
+        $user_id = \Auth::id();
+
+        $params = array_merge(
+            request(['post_id', 'content']),
+            compact('user_id')
+        );
+        \App\Http\Model\Comment::create($params);
+        return back();  //回到当前页
+    }
+
+    //点赞
+    public function zan(Post $post)
+    {
+        $param = [
+            'user_id' => \Auth::id(),
+            'post_id' => $post->id,
+        ];
+        //有就查找,没有创建
+        Zan::firstOrCreate($param);
+        return back();
+    }
+
+    //删除赞
+    public function unzan(Post $post)
+    {
+        $post->zan(\Auth::id())->delete();
+        return back();
+    }
+
 
 }

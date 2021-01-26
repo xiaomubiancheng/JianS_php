@@ -19,8 +19,11 @@
                 <p class="blog-post-meta">{{$post->created_at->toFormattedDateString()}} <a href="#">Kassandra Ankunding2</a></p>
                     {!!$post->content  !!}
                 <div>
-                    <a href="/posts/{{$post->id}}/zan" type="button" class="btn btn-primary btn-lg">赞</a>
-
+                    @if($post->zan(\Auth::id())->exists())
+                        <a href="/posts/{{$post->id}}/unzan" type="button" class="btn btn-default btn-lg">取消赞</a>
+                    @else
+                        <a href="/posts/{{$post->id}}/zan" type="button" class="btn btn-primary btn-lg">赞</a>
+                    @endif
                 </div>
             </div>
 
@@ -30,12 +33,14 @@
 
                 <!-- List group -->
                 <ul class="list-group">
-                    <li class="list-group-item">
-                        <h5>2017-05-28 10:15:08 by Kassandra Ankunding2</h5>
-                        <div>
-                            这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论这是第一个评论
-                        </div>
-                    </li>
+                    @foreach($post->comments as $comment)
+                        <li class="list-group-item">
+                            <h5>{{$comment->created_at}} by {{$comment->user->name}}</h5>
+                            <div>
+                                {{$comment->content}}
+                            </div>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 
@@ -45,11 +50,12 @@
 
                 <!-- List group -->
                 <ul class="list-group">
-                    <form action="/posts/comment" method="post">
-                        <input type="hidden" name="_token" value="4BfTBDF90Mjp8hdoie6QGDPJF2J5AgmpsC9ddFHD">
-                        <input type="hidden" name="post_id" value="62"/>
+                    <form action="/posts/{{$post->id}}/comment" method="post">
+                        {{csrf_field()}}
+                        <input type="hidden" name="post_id" value="{{$post->id}}"/>
                         <li class="list-group-item">
                             <textarea name="content" class="form-control" rows="10"></textarea>
+                            @include("layout.error")
                             <button class="btn btn-default" type="submit">提交</button>
                         </li>
                     </form>
