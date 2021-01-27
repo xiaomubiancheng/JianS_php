@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Model\Zan;
 use Illuminate\Http\Request;
 use \App\Http\Model\Post;
+use PhpParser\Builder;
 
 
 class PostController extends Controller
@@ -134,6 +135,7 @@ class PostController extends Controller
 
         return view('post/search', compact('posts', 'query'));
     }
+
 
 
 }

@@ -24,8 +24,12 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Model/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Model/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Model/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/ylaravel.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/ylaravel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layout/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/main.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/silder.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/silder.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,16 +133,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/post" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/topic" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\www\JianS_php\resources\views\topic" />
       <recent name="E:\www\JianS_php\resources\views\post" />
       <recent name="E:\www\JianS_php\app" />
       <recent name="E:\www\JianS_php\resources\views\user" />
       <recent name="E:\www\JianS_php\resources\views\login" />
-      <recent name="E:\www\JianS_php\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -160,6 +164,8 @@
       <workItem from="1611479799346" duration="10340000" />
       <workItem from="1611553031039" duration="10447000" />
       <workItem from="1611626553954" duration="19547000" />
+      <workItem from="1611748379408" duration="6966000" />
+      <workItem from="1611755385868" duration="2715000" />
     </task>
     <servers />
   </component>
@@ -187,6 +193,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="484" y="44" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1611562385833" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611755420814">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1611755420814" />
     <state x="760" y="240" key="NewPhpClassDialog" timestamp="1611579986253">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

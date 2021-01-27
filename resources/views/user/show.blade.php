@@ -6,8 +6,6 @@
         <blockquote>
             <p><img src="{{$user->avatar}}" alt="" class="img-rounded" style="border-radius:500px; height: 40px"> {{$user->name}}
             </p>
-
-
             <footer>关注：{{$user->stars_count}}｜粉丝：{{$user->fans_count}}｜文章：{{$user->posts_count}}</footer>
             @include('user.badges.like', ['target_user' => $user])
         </blockquote>
@@ -26,32 +24,26 @@
                             <?php \Carbon\Carbon::setLocale('zh');?>
                             <p class=""><a href="/user/{{$post->user_id}}">{{$post->user->name}}</a> {{$post->created_at->diffForHumans()}}</p>
                             <p class=""><a href="/posts/{{$post->id}}" >{{$post->title}}</a></p>
-
-
                             <p>{!! str_limit($post->content, 100, '...') !!}</p>
                         </div>
                     @endforeach
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_2">
-                    @foreach($stars as $star)
-                        <?php $suser = $star->suser()->first(); ?>
+                    @foreach($susers as $suser)
                         <div class="blog-post" style="margin-top: 30px">
                             <p class="">{{$suser->name}}</p>
                             <p class="">关注：{{$suser->stars()->count()}} | 粉丝：{{$suser->fans()->count()}}｜ 文章：{{$suser->posts()->count()}}</p>
-
                             @include('user.badges.like', ['target_user' => $suser])
                         </div>
                     @endforeach
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_3">
-                    @foreach($fans as $fan)
-                        <?php $fuser = $fan->fuser()->first(); ?>
+                    @foreach($fusers as $fuser)
                         <div class="blog-post" style="margin-top: 30px">
                             <p class="">{{$fuser->name}}</p>
                             <p class="">关注：{{$fuser->stars()->count()}} | 粉丝：{{$fuser->fans()->count()}}｜ 文章：{{$fuser->posts()->count()}}</p>
-
                         @include('user.badges.like', ['target_user' => $fuser])
                         </div>
                     @endforeach

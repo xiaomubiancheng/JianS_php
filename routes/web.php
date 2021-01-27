@@ -69,3 +69,8 @@ Route::get('/user/me/setting', '\App\Http\Controllers\UserController@setting');
 Route::post('/user/me/setting', '\App\Http\Controllers\UserController@settingStore');
 
 
+// 专题
+Route::get('/topic/{topic}', '\App\Http\Controllers\TopicController@show');
+Route::get('/topic/{topic}/submit', '\App\Http\Controllers\TopicController@submit');
+
+

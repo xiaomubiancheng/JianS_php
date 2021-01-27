@@ -17,6 +17,16 @@ class AppServiceProvider extends ServiceProvider
     {
         //mb4string 767/4
         Schema::defaultStringLength(250);
+
+        \View::composer('layout.main', function($view){
+            $user = \Auth::user();
+            $view->with('user', $user);
+        });
+
+        \View::composer('layout.silder', function($view){
+            $topics = \App\Http\Model\Topic::all();
+            $view->with('topics', $topics);
+        });
     }
 
     /**
