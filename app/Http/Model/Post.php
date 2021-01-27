@@ -1,12 +1,27 @@
 <?php
 namespace App\Http\Model;
 
-
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 //默认post=>posts
 class Post extends Model
 {
+    use Searchable;
+
+    // 定义索引的type
+    public function searchableAs()
+    {
+        return 'posts';
+    }
+
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'content' => $this->content,
+        ];
+    }
     //projected $table = "othername"
     //protected $guarded; //不可以注入的字段
     //protected $fillable; //可以注入数据字段
